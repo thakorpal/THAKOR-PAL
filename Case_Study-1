@@ -1,0 +1,106 @@
+clc;
+clear;
+% Source Voltage
+Vs = 9;
+% Linear Resistance
+R1 = 100;   % Ohm
+% Diode voltage range for plotting
+Vd = linspace(0.3,0.7,50);
+% Bisection initial values
+Vl = 0.3;
+Vu = 0.7;
+err = 0.01;
+iter = 0;
+% Store values for graph
+Vmid_values = [];
+Io_values = [];
+
+while abs(Vu - Vl) > err
+    Vmid = (Vl + Vu) / 2;   % Midpoint voltage
+    % Current through resistor
+    Ir = (Vs - Vmid)/R1;
+    
+    % Assume simple diode model (Is = 1e-6)
+    Is = 1e-6;
+    Io = Is*(exp(Vmid/0.026) - 1);
+    
+    % Store values
+    Vmid_values = [Vmid_values Vmid];
+    Io_values = [Io_values Ir];
+    
+    % Bisection condition
+    if Ir > Io
+        Vl = Vmid;
+    else
+        Vu = Vmid;
+    end
+    
+    iter = iter + 1;
+end
+
+fprintf('resistor current value = %f A\n', Ir);
+fprintf('diode current value = %e A\n', Io);
+
+disp(Ir)
+disp(Io)
+
+% Plot Graph
+figure;
+plot(Vmid_values, Io_values,'-o');
+xlabel('V_{mid} (Volts)');
+ylabel('I_o (Amps)');
+title('I_o vs V_{mid}');
+grid on;
+clc;
+clear;
+% Source Voltage
+Vs = 9;
+% Linear Resistance
+R1 = 100;   % Ohm
+% Diode voltage range for plotting
+Vd = linspace(0.3,0.7,50);
+% Bisection initial values
+Vl = 0.3;
+Vu = 0.7;
+err = 0.01;
+iter = 0;
+% Store values for graph
+Vmid_values = [];
+Io_values = [];
+
+while abs(Vu - Vl) > err
+    Vmid = (Vl + Vu) / 2;   % Midpoint voltage
+    % Current through resistor
+    Ir = (Vs - Vmid)/R1;
+    
+    % Assume simple diode model (Is = 1e-6)
+    Is = 1e-6;
+    Io = Is*(exp(Vmid/0.026) - 1);
+    
+    % Store values
+    Vmid_values = [Vmid_values Vmid];
+    Io_values = [Io_values Ir];
+    
+    % Bisection condition
+    if Ir > Io
+        Vl = Vmid;
+    else
+        Vu = Vmid;
+    end
+    
+    iter = iter + 1;
+end
+
+fprintf('resistor current value = %f A\n', Ir);
+fprintf('diode current value = %e A\n', Io);
+
+disp(Ir)
+disp(Io)
+
+% Plot Graph
+figure;
+plot(Vmid_values, Io_values,'-o');
+xlabel('V_{mid} (Volts)');
+ylabel('I_o (Amps)');
+title('I_o vs V_{mid}');
+grid on;
