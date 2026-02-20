@@ -1,0 +1,91 @@
+ Project Overview
+This project focuses on analyzing a coupled nonlinear resistor–diode network using computational techniques in MATLAB.
+The circuit consists of a linear resistor connected in series with a nonlinear diode, forming a system whose operating point cannot be determined by simple algebra.
+Because the diode exhibits exponential I–V characteristics, the current flowing through the network must be computed using an iterative numerical method.
+This project demonstrates how the Bisection Method can be applied to find the operating (Q-point) where the resistor current and diode current become equal.
+Using MATLAB, the nonlinear equation is solved, and the variation of diode current with midpoint voltage is visualized graphically.
+ Objective
+The main objectives of this project are:
+To understand nonlinear I–V behavior of diodes
+To apply iterative numerical techniques for solving nonlinear circuits
+To compute operating current using the Bisection Method
+To analyze the interaction between linear resistances and nonlinear diode elements
+To visualize the I–V characteristics using MATLAB plotting tools
+Problem Description
+The analyzed electrical network consists of:
+  
+ A DC source (9 V)
+A linear resistor (100 Ω)
+A nonlinear diode modeled using the exponential Shockley equation
+The resistor and diode share the same current at steady-state.
+Because diode current depends exponentially on voltage, solving:
+Resistor Current = Diode Current
+becomes a nonlinear root-finding problem.
+The MATLAB program calculates the voltage across the diode and the operating current using iterative refinement.
+Assumptions:
+Temperature is constant
+Diode follows Shockley model
+System is static (DC operating point)
+Small-signal effects neglected
+
+ Methodology
+Define source voltage and resistance
+Create diode voltage range for plotting
+Set Bisection Method parameters
+Compute resistor and diode currents at midpoint
+Update bounds until error tolerance is met
+Extract final diode voltage and operating current
+Store and plot I–V values for analysis
+ MATLAB Implementation
+The MATLAB script performs:
+Initialization of circuit parameters (Vs, R1, Is)
+Iterative bisection computation of diode voltage
+Calculation of both resistor current and diode current
+Checking of convergence based on tolerance
+Storing values for plotting
+Visualizing the diode current vs midpoint voltage
+The program outputs:
+Final resistor current
+Final diode current
+
+Iteration-wise voltage and current pattern
+Results
+The computational analysis provides:
+Converged operating (Q-point) current
+Diode voltage at operating point
+Iteration behavior of Io vs Vmid
+Typical results show:
+A realistic exponential rise in diode current
+Convergence to a steady operating point
+Matching diode and resistor currents after final iteration
+A smooth I–V curve plotted using MATLAB
+This validates the characteristic nonlinear behavior of the diode.
+ Key Concepts Demonstrated
+This project applies core engineering concepts:
+Nonlinear circuit analysis
+Shockley diode equation
+
+Numerical root-finding (Bisection Method)
+MATLAB computation and automation
+Graphical interpretation of nonlinear systems
+ Engineering Significance
+Understanding nonlinear resistance networks is essential in:
+Electronic circuit design
+Rectifiers and power converters
+Signal processing systems
+Semiconductor device modeling
+Load-line and Q-point analysis
+This project highlights the importance of numerical techniques for analyzing circuits where analytical solutions are difficult or impossible.
+ 
+  Project Summary
+This project successfully demonstrates the use of MATLAB to compute the operating point of a nonlinear resistor–diode network.
+Using the Bisection Method, the nonlinear equation governing the circuit is solved with high accuracy.
+The study reinforces the significance of numerical methods in modern electronics and provides an efficient approach to analyzing nonlinear elements.
+
+Author
+
+PAL THAKOR
+Pandit Deendayal Energy University, Gandhinagar
+3rd Year Mechanical Engineering
+Subject: Computational Engineering Lab
+Contact: +91 6351357472
